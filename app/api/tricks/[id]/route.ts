@@ -1,6 +1,5 @@
 import { PrismaClient } from '@prisma/client'
 import {NextRequest, NextResponse} from "next/server";
-import trick from "../../../Trick";
 
 
 const prisma = new PrismaClient()
@@ -60,20 +59,3 @@ export async function PATCH (request: NextRequest, { params }: { params: { id: s
 
     return  NextResponse.json(updatedTrick)
 }
-
-// export async function POST (request: NextRequest){
-//
-//     const body =  await request.json()
-//
-//     const newTrick = await prisma.trick.create({
-//         data: {
-//             title: body.title,
-//             description: body.description,
-//             category: body.category,
-//         }
-//     })
-//
-//     return NextResponse.json(newTrick)
-// }
-
-// { params }: { params: { slug: string } }

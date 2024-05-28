@@ -1,9 +1,14 @@
-'use client'
 import './main.css'
-import Trick from "./Trick"
-import {useState} from "react";
+import Navigation from "./components/Navigation"
 
-const dogTricks = [
+
+type trickType = {
+  title: string,
+  category: string,
+  description: string
+}
+
+const dogTricks: trickType[] = [
   {title: "Sit", category: "Basic", description: "Dog sits down on its hind legs"},
   {title: "Stay", category: "Basic", description: "Dog remains in the same spot and position until given a release command"},
   {title: "Shake Hands", category: "Basic", description: "Dog lifts a paw to shake hands with a person"},
@@ -36,64 +41,12 @@ const dogTricks = [
   {title: "Skateboard", category: "Agility", description: "Dog stands on a skateboard and moves forward"}
 ];
 
-const allCategories = dogTricks.map(trick => trick.category)
-// @ts-ignore
-const uniqueCategoriesSet = ['All', ...new Set(allCategories)]
-const uniqueCategories = Array.from(uniqueCategoriesSet)
-console.log(uniqueCategories)
+async function App( ) {
 
-function App() {
 
-  const handleClick= (category: string) => {
-    if (category==="All") {
-      setFilteredTricks(dogTricks)
-    } else {
-      const newTricks = dogTricks.filter(trick=>trick.category === category)
-      setFilteredTricks(newTricks)
-    }
-
-  }
-
-  const [filteredTricks, setFilteredTricks] = useState(dogTricks)
   return (
       <>
-        <div className='main-nav'>
-          <h1>Find Your Next Trick</h1>
-          <p>The Ultimate Collection of Dog Tricks!</p>
-
-          <div className='category-nav'>
-            {/*<button onClick={()=> handleClick(null)}>All Tricks</button>*/}
-            {uniqueCategories.map((category) => {
-              return (
-                  <button
-                      onClick={
-                        ()=>{
-                          handleClick(category)
-                        }
-                      }
-                      key={category}
-                      className='badge'
-                  >{category}</button>
-              )
-            })}
-          </div>
-        </div>
-
-        <div className='content'>
-          <div className='cards-container'>
-            {filteredTricks.map((trick)=> {
-              return (
-                  <Trick
-                      key = {trick.title}
-                      title={trick.title}
-                      description={trick.description}
-                      category={trick.category}
-                  />
-              )
-
-            })}
-          </div>
-        </div>
+        <Navigation allTricks={dogTricks}/>
       </>
   )
 }
