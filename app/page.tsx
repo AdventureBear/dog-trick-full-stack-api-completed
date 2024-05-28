@@ -1,6 +1,7 @@
 import './main.css'
 import Navigation from "./components/Navigation"
-
+// import {PrismaClient} from '@prisma/client'
+// const prisma = new PrismaClient()
 
 type trickType = {
   title: string,
@@ -42,6 +43,7 @@ const dogTricks: trickType[] = [
 ];
 
 async function App( ) {
+  // const dogTricks = await prisma.trick.findMany()
 
 
   return (

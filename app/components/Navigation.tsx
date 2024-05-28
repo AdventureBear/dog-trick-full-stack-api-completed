@@ -21,12 +21,11 @@ export default function Navigation({allTricks}: {allTricks: trickType[]}) {
         if (category === "All") {
             setFilteredTricks(allTricks)
         } else {
-            const newTricks = filteredTricks.filter(trick => trick.category === category)
+            const newTricks = allTricks.filter(trick => trick.category === category)
             setFilteredTricks(newTricks)
         }
     }
 
-        // console.log(typeof (uniqueCategories), uniqueCategories)
         return (
             <>
             <div className='main-nav'>
@@ -34,7 +33,6 @@ export default function Navigation({allTricks}: {allTricks: trickType[]}) {
                 <p>The Ultimate Collection of Dog Tricks!</p>
 
                 <div className='category-nav'>
-                    {/*<button onClick={()=> handleClick(null)}>All Tricks</button>*/}
                     {uniqueCategories.map((category) => {
                         return (
                             <button
