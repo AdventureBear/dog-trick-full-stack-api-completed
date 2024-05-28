@@ -90,6 +90,7 @@ function App() {
                       category={trick.category}
                   />
               )
+
             })}
           </div>
         </div>
