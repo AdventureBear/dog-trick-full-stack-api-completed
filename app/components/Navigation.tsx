@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import Trick from "./Trick";
 
 type trickType = {
-    title: string,
+    name: string,
     category: string,
     description: string
 }
@@ -54,8 +54,8 @@ export default function Navigation({allTricks}: {allTricks: trickType[]}) {
                 console.log("Mapping tricks")
             return (
                  <Trick
-                        key = {trick.title}
-                        title={trick.title}
+                        key = {trick.name}
+                        name={trick.name}
                       description={trick.description}
                       category={trick.category}
                   />
