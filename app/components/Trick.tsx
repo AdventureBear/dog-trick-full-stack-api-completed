@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-function Trick({title, description, category}: {title:string, description: string, category: string}) {
+function Trick({name, description, category}: {name:string, description: string, category: string}) {
 
     const [flipped, setFlipped] = useState(false)
     return (
@@ -8,7 +8,7 @@ function Trick({title, description, category}: {title:string, description: strin
             {!flipped &&
                 <div  className='card'>
                     <p className='badge'>{category}</p>
-                    <h2>{title}</h2>
+                    <h2>{name}</h2>
 
 
                 </div>}
